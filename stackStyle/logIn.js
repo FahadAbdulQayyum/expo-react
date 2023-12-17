@@ -9,7 +9,6 @@ export default function LogIn({ navigation }) {
                 flex: 1,
                 alignItems: 'center',
                 justifyContent: 'center',
-                // width: '90%',
             }}
         >
             <View
@@ -25,7 +24,6 @@ export default function LogIn({ navigation }) {
                 <TextInput
                     placeholder='Enter your password'
                     textContentType='password'
-                    // returnKeyType='password'
                     secureTextEntry
                     keyboardType='number-pad'
                     style={styles.inpt1}
@@ -36,20 +34,31 @@ export default function LogIn({ navigation }) {
                     <Text
                         style={styles.txt}
                     >Submit</Text></TouchableOpacity >
-                {/* <Text>Sign Up Screen</Text> */}
-                {/* <Button
-                    title="Go To Home"
-                    onPress={() => navigation.navigate('Home')}
-                /> */}
-                <TouchableOpacity
+                {/* <TouchableOpacity
                     style={styles.btn}
                     onPress={() => navigation.navigate('Signup')}
                 >
                     <Text
                         style={styles.txt}
-                    >Sign Up</Text></TouchableOpacity >
+                    >Sign Up</Text></TouchableOpacity > */}
             </View>
-
+            <View
+                style={{ ...styles.inpt, ...styles.inpt2 }}
+            >
+                <View
+                    // style={{ flex: 1, justifyContent: 'flex-start' }}
+                    style={{ flex: 1, flexDirection: 'row' }}
+                >
+                    <Text>Haven't registered yet?&nbsp;</Text>
+                    <TouchableOpacity
+                        // style={styles.btn}
+                        onPress={() => navigation.navigate('Signup')}
+                    >
+                        <Text
+                            style={{ ...styles.txt, ...styles.txt1 }}
+                        >Sign Up</Text></TouchableOpacity >
+                </View>
+            </View>
         </View>
     );
 }
@@ -78,6 +87,15 @@ const styles = StyleSheet.create({
         padding: 5,
         borderRadius: 5,
     },
+    inpt2: {
+        flex: .1,
+        backgroundColor: '#DED0B6',
+        marginVertical: 2,
+        width: '90%',
+        paddingHorizontal: 10,
+        padding: 5,
+        borderRadius: 5,
+    },
     btn: {
         backgroundColor: '#607274',
         width: '90%',
@@ -92,5 +110,8 @@ const styles = StyleSheet.create({
     },
     txt: {
         color: 'white',
-    }
+    },
+    txt1: {
+        color: 'red',
+    },
 })

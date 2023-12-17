@@ -17,6 +17,12 @@ export default function SignUp({ navigation }) {
             >
                 <Text>Sign Up</Text>
                 <TextInput
+                    placeholder='Enter your username'
+                    textContentType='username'
+                    keyboardType='url'
+                    style={styles.inpt1}
+                />
+                <TextInput
                     placeholder='Enter your Email'
                     textContentType='username'
                     keyboardType='email-address'
