@@ -34,24 +34,15 @@ export default function LogIn({ navigation }) {
                     <Text
                         style={styles.txt}
                     >Submit</Text></TouchableOpacity >
-                {/* <TouchableOpacity
-                    style={styles.btn}
-                    onPress={() => navigation.navigate('Signup')}
-                >
-                    <Text
-                        style={styles.txt}
-                    >Sign Up</Text></TouchableOpacity > */}
             </View>
             <View
-                style={{ ...styles.inpt, ...styles.inpt2 }}
+                style={{ ...styles.inpt, ...styles.inpt2, ...styles.inpt3 }}
             >
                 <View
-                    // style={{ flex: 1, justifyContent: 'flex-start' }}
                     style={{ flex: 1, flexDirection: 'row' }}
                 >
-                    <Text>Haven't registered yet?&nbsp;</Text>
+                    <Text>Haven't you registered yet?&nbsp;</Text>
                     <TouchableOpacity
-                        // style={styles.btn}
                         onPress={() => navigation.navigate('Signup')}
                     >
                         <Text
@@ -67,7 +58,6 @@ export default function LogIn({ navigation }) {
 const styles = StyleSheet.create({
     inpt: {
         flex: 1,
-        // backgroundColor: 'red',
         backgroundColor: '#EEF0E5',
         justifyContent: 'center',
         alignItems: 'center',
@@ -75,14 +65,9 @@ const styles = StyleSheet.create({
 
     },
     inpt1: {
-        // backgroundColor: 'blue',
-        // backgroundColor: '#B2A59B',
         backgroundColor: '#DED0B6',
-        // marginVertical: '15px',
         marginVertical: 2,
-        // marginBottom: '5px',
         width: '90%',
-        // padding: '5px',
         paddingHorizontal: 10,
         padding: 5,
         borderRadius: 5,
@@ -96,6 +81,9 @@ const styles = StyleSheet.create({
         padding: 5,
         borderRadius: 5,
     },
+    inpt3: {
+        backgroundColor: '',
+    },
     btn: {
         backgroundColor: '#607274',
         width: '90%',
@@ -103,8 +91,6 @@ const styles = StyleSheet.create({
         padding: 8,
         borderRadius: 5,
         marginTop: 3,
-        // textAlign: 'center',
-        // flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
