@@ -33,7 +33,13 @@ export default function LogIn({ navigation }) {
                 >
                     <Text
                         style={styles.txt}
-                    >Submit</Text></TouchableOpacity >
+                    >Submit</Text></TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('ProductDetail')}
+                >
+                    <Text
+                        style={{ ...styles.txt, ...styles.txt1 }}
+                    >Product Detail Screen</Text></TouchableOpacity>
             </View>
             <View
                 style={{ ...styles.inpt, ...styles.inpt2, ...styles.inpt3 }}
@@ -47,7 +53,7 @@ export default function LogIn({ navigation }) {
                     >
                         <Text
                             style={{ ...styles.txt, ...styles.txt1 }}
-                        >Sign Up</Text></TouchableOpacity >
+                        >Sign Up</Text></TouchableOpacity>
                 </View>
             </View>
         </View>

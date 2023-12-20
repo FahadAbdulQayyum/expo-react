@@ -53,7 +53,7 @@ export default function SignUp({ navigation }) {
                 >
                     <Text
                         style={styles.txt}
-                    >Login</Text></TouchableOpacity >
+                    >Login</Text></TouchableOpacity>
             </View>
 
         </View>
