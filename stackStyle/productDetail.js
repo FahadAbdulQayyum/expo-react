@@ -3,10 +3,15 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 const ProductDetailScreen = ({ route }) => {
     // const { product } = route.params;
-    const product = { image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nike.com%2Fin%2Ft%2Fin-season-tr-13-workout-shoes-BDTlPf&psig=AOvVaw3f63D3o8KCGqZvBoxDZetl&ust=1703192461419000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJDC6cL0noMDFQAAAAAdAAAAABAD', title: 'Fahad', price: 200, description: 'Hello Im fahads' }
+    const product = { image: 'https://www.freepnglogos.com/uploads/shoes-png/shoes-shoe-png-transparent-shoe-images-pluspng-17.png', title: 'Louis Vuitton', price: 200, description: 'Great and Pride to wear this shoes. Great and Pride to wear this shoes.' }
     return (
         <View style={styles.container}>
-            <Image source={{ uri: product.image }} style={styles.image} />
+            <View
+                style={styles.image}
+            >
+                <Image source={{ uri: product.image }} style={styles.image} />
+            </View>
+
             <View style={styles.details}>
                 <Text style={styles.title}>{product.title}</Text>
                 <Text style={styles.price}>Price: ${product.price}</Text>
@@ -28,6 +33,8 @@ const styles = StyleSheet.create({
         height: 200,
         marginBottom: 20,
         resizeMode: 'cover',
+        borderWidth: 5,
+        borderRadius: 100,
     },
     details: {
         alignItems: 'center',
