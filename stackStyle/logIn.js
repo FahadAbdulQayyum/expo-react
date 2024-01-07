@@ -39,7 +39,7 @@ export default function LogIn({ navigation }) {
                 >
                     <Text
                         style={{ ...styles.txt, ...styles.txt1 }}
-                    >Product Detail Screen</Text></TouchableOpacity>
+                    >Go to Product Detail Screen</Text></TouchableOpacity>
             </View>
             <View
                 style={{ ...styles.inpt, ...styles.inpt2, ...styles.inpt3 }}
