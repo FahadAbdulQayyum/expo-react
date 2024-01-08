@@ -16,7 +16,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen}
-          options={{
+          options={({ navigation }) => ({
             title: 'My home',
             headerStyle: {
               backgroundColor: '#f4511e',
@@ -27,13 +27,15 @@ function App() {
             },
             headerRight: () => (
               <Button
-                onPress={() => alert('This is a button!')}
-                title="Info"
+                // onPress={() => alert('This is a button!')}
+                onPress={() => navigation.navigate('Signup')}
+                // title="Info"
+                title="Signup"
                 // color="#fff"
                 color='#f4511e'
               />
             ),
-          }}
+          })}
 
         />
         {/* <Stack.Screen name="Signup" component={SignUp} options={{ headerShown: false }} /> //Header hidden */}
