@@ -1,8 +1,29 @@
 
-import * as React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import axios from 'axios';
 
 export default function LogIn({ navigation }) {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const sendData = async () => {
+        // const data = await axios.post('https://hackathon-seven-sandy.vercel.app/api/auth/login', { email, password })
+        const data = await fetch('https://hackathon-seven-sandy.vercel.app/api/auth/login', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email, password
+            }),
+        });
+        const datajson = await data.json()
+        console.log('datajson', datajson)
+    }
+
     return (
         <View
             style={{
@@ -20,6 +41,8 @@ export default function LogIn({ navigation }) {
                     textContentType='username'
                     keyboardType='email-address'
                     style={styles.inpt1}
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                 />
                 <TextInput
                     placeholder='Enter your password'
@@ -27,9 +50,12 @@ export default function LogIn({ navigation }) {
                     secureTextEntry
                     keyboardType='number-pad'
                     style={styles.inpt1}
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
                 />
                 <TouchableOpacity
                     style={styles.btn}
+                    onPress={() => sendData()}
                 >
                     <Text
                         style={styles.txt}
