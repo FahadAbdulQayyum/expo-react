@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -13,7 +12,6 @@ export default function LogIn({ navigation }) {
     const navigationn = useNavigation();
 
     const sendData = async () => {
-        // const data = await axios.post('https://hackathon-seven-sandy.vercel.app/api/auth/login', { email, password })
 
         console.log('email:', email, 'password:', password)
 
