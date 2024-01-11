@@ -10,17 +10,23 @@ export default function LogIn({ navigation }) {
 
     const sendData = async () => {
         // const data = await axios.post('https://hackathon-seven-sandy.vercel.app/api/auth/login', { email, password })
+
+        console.log('email:', email, 'password:', password)
+
         const data = await fetch('https://hackathon-seven-sandy.vercel.app/api/auth/login', {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
+                // Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email, password
+                email, password,
+                // email: 'f@gmail.com',
+                // password: 'f'
             }),
         });
         const datajson = await data.json()
+        console.log('data', data)
         console.log('datajson', datajson)
     }
 
@@ -42,7 +48,9 @@ export default function LogIn({ navigation }) {
                     keyboardType='email-address'
                     style={styles.inpt1}
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    // onChange={e => setEmail(e.target.value)}
+                    onChangeText={e => setEmail(e)}
+                // onChangeText={e => console.log('setEmail(e.target.value)', e)}
                 />
                 <TextInput
                     placeholder='Enter your password'
@@ -51,7 +59,8 @@ export default function LogIn({ navigation }) {
                     keyboardType='number-pad'
                     style={styles.inpt1}
                     value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    // onChangeText={e => setPassword(e.target.value)}
+                    onChangeText={e => setPassword(e)}
                 />
                 <TouchableOpacity
                     style={styles.btn}
