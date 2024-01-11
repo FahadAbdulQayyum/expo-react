@@ -2,11 +2,15 @@
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function LogIn({ navigation }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const navigationn = useNavigation();
 
     const sendData = async () => {
         // const data = await axios.post('https://hackathon-seven-sandy.vercel.app/api/auth/login', { email, password })
@@ -21,13 +25,15 @@ export default function LogIn({ navigation }) {
             },
             body: JSON.stringify({
                 email, password,
-                // email: 'f@gmail.com',
-                // password: 'f'
             }),
         });
         const datajson = await data.json()
         console.log('data', data)
         console.log('datajson', datajson)
+
+        if (datajson.success) {
+            navigationn.navigate('Home');
+        }
     }
 
     return (
