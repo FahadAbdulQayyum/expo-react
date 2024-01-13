@@ -8,6 +8,7 @@ import AnimatedDotsCarousel from 'react-native-animated-dots-carousel';
 const LENGTH = 10;
 
 import CarouselCards from './carouselCard';
+import CarouselFahad from './carouselfahad';
 
 export default function HomeScreen({ navigation }) {
 
@@ -29,7 +30,8 @@ export default function HomeScreen({ navigation }) {
             // justifyContent: 'space-around',
         }}>
 
-            <CarouselCards />
+            {/* <CarouselCards /> */}
+            <CarouselFahad />
 
             {/* <View
                 style={{
