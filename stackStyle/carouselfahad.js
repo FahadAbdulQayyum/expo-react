@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Dimensions } from 'react-native'; // Import Dimensions
+import { View, Text, Dimensions, Image } from 'react-native'; // Import Dimensions
 
 import Carousel from 'react-native-snap-carousel';
 
@@ -12,16 +12,28 @@ export default class App extends React.Component {
     _renderItem = ({ item, index }) => {
         return (
             <View style={styles.item}>
-                <Text style={styles.text}>{item.title}</Text>
+                {/* <Text style={styles.text}>{item.title}</Text> */}
+                <Image
+                    source={{ uri: item.imageSource }}
+                    style={styles.image}
+                />
             </View>
         );
     }
 
     render() {
         const data = [
-            { title: 'Item 1' },
-            { title: 'Item 2' },
-            { title: 'Item 3' },
+            // { title: 'Item 1' },
+            // { title: 'Item 2' },
+            // { title: 'Item 3' },
+
+            // { imageSource: require('./path/to/image1.jpg') },
+            // { imageSource: require('./path/to/image2.jpg') },
+            // { imageSource: require('./path/to/image3.jpg') }
+
+            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
+            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
+            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' }
         ];
 
         return (
@@ -50,6 +62,12 @@ const styles = {
     text: {
         color: 'white',
         fontSize: 18,
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+        borderRadius: 8,
     },
 };
 
