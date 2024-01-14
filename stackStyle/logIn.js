@@ -1,15 +1,94 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { addUser, LoadUser } from '../features/counterSlice';
+import { getData } from '../features/storage';
 
 
 export default function LogIn({ navigation }) {
 
+    const navigationn = useNavigation();
+    const dispatch = useDispatch()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const navigationn = useNavigation();
+    const { userInfo } = useSelector((state) => state.counter);
+
+    useEffect(() => {
+        console.log('useEffect running');
+
+        // dispatch(LoadUser())
+
+        // const fetchData = async () => {
+        // async function fetchData() {
+        //     console.log('useEffect running');
+
+        //     try {
+        //         const data = await dispatch(LoadUser());
+
+        //         console.log('|||dataaaa||||', data)
+
+        //         if (data.success) {
+        //             navigation.navigate('Home');
+        //         }
+        //     } catch (error) {
+        //         // Handle errors if necessary
+        //         console.error('Error fetching data:', error);
+        //     }
+        // };
+
+        // fetchData();
+
+        const dataFetch = async () => {
+            // const dataFetch = () => {
+            const data = await getData('user') || {}
+            // const data = getData('user') || {}
+            console.log('dataaaa', data)
+        }
+        dataFetch()
+        // console.log('fetchData --- ', dataFetch)
+
+        // const res = dispatch(LoadUser())
+        // userInfo && console.log('userInfoooo---', userInfo);
+        // console.log('userInfoooo---', res, userInfo);
+
+        // const dispatchUser = async () => {
+        //     try {
+        //         const res = await dispatch(LoadUser())
+        //         // const res = dispatch(LoadUser())
+        //         console.log('resss', res);
+        //     } catch (err) {
+
+        //     }
+        // }
+        // dispatchUser()
+
+        // const remove = async () => {
+        //     await AsyncStorage.removeItem('user');
+        // }
+        // remove()
+
+    }, [])
+
+    // useEffect(() => {
+    //     console.log('userInfooooooo,,,', userInfo)
+
+    //     // Check if user information is loaded successfully
+    //     // if (userInfo.length > 0) {
+    //     // if (userInfo) {
+    //     if (userInfo?.success) {
+    //         console.log('userIn', userInfo)
+    //         // Redirect to the home page using the navigation prop
+    //         navigationn.navigate('Home');
+    //     }
+
+    //     // }, [userInfo?.success]);
+    // }, [userInfo]);
+
 
     const sendData = async () => {
 
@@ -30,7 +109,9 @@ export default function LogIn({ navigation }) {
         console.log('datajson', datajson)
 
         if (datajson.success) {
-            navigationn.navigate('Home');
+            console.log('userInfooo', userInfo);
+            dispatch(addUser(datajson.token))
+            // navigationn.navigate('Home');
         }
     }
 
