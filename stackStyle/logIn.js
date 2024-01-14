@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser, LoadUser } from '../features/counterSlice';
-import { getData } from '../features/storage';
+import { getData, removeData } from '../features/storage';
 
 
 export default function LogIn({ navigation }) {
@@ -19,59 +19,37 @@ export default function LogIn({ navigation }) {
     const { userInfo } = useSelector((state) => state.counter);
 
     useEffect(() => {
-        console.log('useEffect running');
-
-        // dispatch(LoadUser())
-
-        // const fetchData = async () => {
-        // async function fetchData() {
-        //     console.log('useEffect running');
-
-        //     try {
-        //         const data = await dispatch(LoadUser());
-
-        //         console.log('|||dataaaa||||', data)
-
-        //         if (data.success) {
-        //             navigation.navigate('Home');
-        //         }
-        //     } catch (error) {
-        //         // Handle errors if necessary
-        //         console.error('Error fetching data:', error);
-        //     }
-        // };
-
-        // fetchData();
-
         const dataFetch = async () => {
             // const dataFetch = () => {
-            const data = await getData('user') || {}
+            const userToken = await getData('user') || {}
             // const data = getData('user') || {}
-            console.log('dataaaa', data)
+            let res = await fetch('https://hackathon-seven-sandy.vercel.app/api/auth/middleware', {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'x-auth-token': userToken
+                },
+            });
+            res = await res.json()
+            console.log('verifyy res', res)
+
+            if (res.success) {
+                return navigation.navigate('Home')
+            }
+
+            // await storeData('user', '');
+            await removeData('user')
+
+            return navigation.navigate('Login')
+
         }
+
         dataFetch()
-        // console.log('fetchData --- ', dataFetch)
 
-        // const res = dispatch(LoadUser())
-        // userInfo && console.log('userInfoooo---', userInfo);
-        // console.log('userInfoooo---', res, userInfo);
-
-        // const dispatchUser = async () => {
-        //     try {
-        //         const res = await dispatch(LoadUser())
-        //         // const res = dispatch(LoadUser())
-        //         console.log('resss', res);
-        //     } catch (err) {
-
-        //     }
+        // const removeIt = async () => {
+        //     await removeData('user')
         // }
-        // dispatchUser()
-
-        // const remove = async () => {
-        //     await AsyncStorage.removeItem('user');
-        // }
-        // remove()
-
+        // removeIt()
     }, [])
 
     // useEffect(() => {
@@ -111,7 +89,7 @@ export default function LogIn({ navigation }) {
         if (datajson.success) {
             console.log('userInfooo', userInfo);
             dispatch(addUser(datajson.token))
-            // navigationn.navigate('Home');
+            return navigationn.navigate('Home');
         }
     }
 

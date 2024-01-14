@@ -5,6 +5,11 @@ import { useNavigation } from '@react-navigation/native';
 
 // const navigation = useNavigation()
 
+export const saveUser = async () => {
+    await storeData('user', action.payload)
+
+}
+
 const counterSlice = createSlice({
     name: 'counter',
     // initialState: { products: JSON.parse(sessionStorage.getItem('pd')) !== null ? JSON.parse(sessionStorage.getItem('pd')) : [] },
@@ -25,52 +30,18 @@ const counterSlice = createSlice({
             console.log('****', loadedUser);
             return loadedUser;
         },
-        // verify: async (tokenExist) => {
-        verify: async (state, action) => {
-
-            // console.log('tokenExist', tokenExist);
-            console.log('tokenExist', action.payload);
-
-            // const tokenExist = localStorage.getItem('token');
-            let res = await fetch('https://hackathon-seven-sandy.vercel.app/api/auth/middleware', {
-                method: 'GET',
-                headers: {
-                    // Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                    'x-auth-token': tokenExist
-                },
-            });
-            // const res = await axios.get('/api/auth/middleware', {
-            //     headers: {
-            //         'x-auth-token': tokenExist
-            //     }
-            // })
-
-            res = await res.json()
-
-            const admin = res.data.isAdmin
-            // email = res.data.email
-            // console.log('adminn', admin, email)
-            console.log('adminn', admin)
-            // if (!admin) {
-            //     router.replace('/')
-            //     // router.replace('/auth/login')
-            // }
-        },
-        addUser: async (state, action) => {
-            // addUser: (state, action) => {
+        // addUser: async (state, action) => {
+        addUser: (state, action) => {
             console.log('state uuser', state, action.payload)
             // try {
-            // storeData('user', action.payload)
-            await storeData('user', action.payload)
+            storeData('user', action.payload)
+            // await storeData('user', action.payload)
 
             const newState = {
                 ...state,
                 userInfo: action.payload,
             };
-            // return newState
-
-            // return await storeData('user', action.payload)
+            return newState
 
             // } catch(err) {
             //     return state;
