@@ -18,7 +18,7 @@ const counterSlice = createSlice({
     reducers: {
         onLoad: (state, action) => {
             // const loadedProducts = JSON.parse(sessionStorage.getItem('pd')) || [];
-            const loadedProducts = getData() || [];
+            const loadedProducts = getData('pd') || [];
             return {
                 ...state,
                 products: loadedProducts,

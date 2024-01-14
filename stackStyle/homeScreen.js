@@ -14,12 +14,28 @@ export default function HomeScreen({ navigation }) {
 
     // const [index, setIndex] = React.useState(0)
 
+    const [products, setProducts] = React.useState([])
+
     // const increaseIndex = () => {
     //     setIndex(Math.min(index + 1, LENGTH - 1));
     // };
     // const decreaseIndex = () => {
     //     setIndex(Math.max(index - 1, 0));
     // };
+
+
+    React.useEffect(() => {
+        const fetchProducts = async () => {
+            let res = await fetch('https://hackathon-seven-sandy.vercel.app/api/products', {
+                method: 'GET',
+            });
+            res = await res.json()
+            setProducts(res)
+            console.log('res proudcts', res)
+        }
+        fetchProducts()
+    }, [])
+
 
     return (
         <View style={{
@@ -31,7 +47,8 @@ export default function HomeScreen({ navigation }) {
         }}>
 
             {/* <CarouselCards /> */}
-            <CarouselFahad />
+            {/* {products && <CarouselFahad products={products} />} */}
+            <CarouselFahad products={products} />
 
             {/* <View
                 style={{

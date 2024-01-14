@@ -13,8 +13,25 @@ export default class App extends React.Component {
         return (
             <View style={styles.item}>
                 {/* <Text style={styles.text}>{item.title}</Text> */}
+                {console.log('item||', item) && <Image
+                    source={{ uri: item?.imageSource }}
+                    style={styles.image}
+                />}
+
+                {item?.map((v, i) => <Image
+                    key={i}
+                    source={{ uri: v?.imageSource }}
+                    style={styles.image}
+                />)}
+
+                {/* {this?.props?.products?.products && this?.props?.products?.products?.map(v =>
+                    <Image
+                        source={{ uri: v.imgUrl }}
+                        style={styles.image}
+                    />)} */}
+
                 <Image
-                    source={{ uri: item.imageSource }}
+                    source={{ uri: item?.imageSource }}
                     style={styles.image}
                 />
             </View>
@@ -31,10 +48,23 @@ export default class App extends React.Component {
             // { imageSource: require('./path/to/image2.jpg') },
             // { imageSource: require('./path/to/image3.jpg') }
 
-            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
-            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
-            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' }
+            // { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
+            // { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
+            // { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' }
+
+            // { imageSource: this.props.products.products?.map(v => v.imgUrl) }
+
+            this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl }))
+
+            // JSON.stringify(this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl })))
+
         ];
+        // console.log('htisprosp', this.props)
+        // console.log('htisprosp', this.props.products.products)
+        // console.log('htisprosp', {this.props.products.products?.map(v => imageSource:v.imgUrl))}
+        // console.log('htisprosp', this.props.products.products?.map(v => v.imgUrl))
+
+        console.log('daataa', data)
 
         return (
             <Carousel
@@ -46,7 +76,6 @@ export default class App extends React.Component {
                 autoplay={true} // Enable autoplay
                 autoplayInterval={2000} // Set the interval between slides (in milliseconds)
                 loop={true} // Enable infinite loop
-
             />
         );
     }

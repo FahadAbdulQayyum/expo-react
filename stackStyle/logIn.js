@@ -52,22 +52,6 @@ export default function LogIn({ navigation }) {
         // removeIt()
     }, [])
 
-    // useEffect(() => {
-    //     console.log('userInfooooooo,,,', userInfo)
-
-    //     // Check if user information is loaded successfully
-    //     // if (userInfo.length > 0) {
-    //     // if (userInfo) {
-    //     if (userInfo?.success) {
-    //         console.log('userIn', userInfo)
-    //         // Redirect to the home page using the navigation prop
-    //         navigationn.navigate('Home');
-    //     }
-
-    //     // }, [userInfo?.success]);
-    // }, [userInfo]);
-
-
     const sendData = async () => {
 
         console.log('email:', email, 'password:', password)
