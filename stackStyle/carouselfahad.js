@@ -11,18 +11,34 @@ const itemWidth = screenWidth - 40; // You can adjust the padding as needed
 export default class App extends React.Component {
     _renderItem = ({ item, index }) => {
         return (
-            <View style={styles.item}>
+            <View
+                style={styles.item}
+            >
                 {/* <Text style={styles.text}>{item.title}</Text> */}
-                {console.log('item||', item) && <Image
+                <Image
                     source={{ uri: item?.imageSource }}
                     style={styles.image}
-                />}
+                />
 
-                {item?.map((v, i) => <Image
-                    key={i}
+                {/* {item?.map(v => <Image
                     source={{ uri: v?.imageSource }}
                     style={styles.image}
-                />)}
+                />)} */}
+
+                {/* {
+                    item?.map((v, i) => {
+                        <View
+                            key={i}
+                            style={styles.item}
+                        >
+                            <Image
+                                source={{ uri: v?.imageSource }}
+                                style={styles.image}
+                            />
+                        </View>
+                    }
+                    )
+                } */}
 
                 {/* {this?.props?.products?.products && this?.props?.products?.products?.map(v =>
                     <Image
@@ -30,11 +46,11 @@ export default class App extends React.Component {
                         style={styles.image}
                     />)} */}
 
-                <Image
+                {/* <Image
                     source={{ uri: item?.imageSource }}
                     style={styles.image}
-                />
-            </View>
+                /> */}
+            </View >
         );
     }
 
@@ -48,13 +64,13 @@ export default class App extends React.Component {
             // { imageSource: require('./path/to/image2.jpg') },
             // { imageSource: require('./path/to/image3.jpg') }
 
-            // { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
-            // { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
-            // { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' }
+            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
+            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
+            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' }
 
             // { imageSource: this.props.products.products?.map(v => v.imgUrl) }
 
-            this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl }))
+            // this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl }))
 
             // JSON.stringify(this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl })))
 
@@ -84,6 +100,7 @@ export default class App extends React.Component {
 const styles = {
     item: {
         flex: 1,
+        // flex: .5,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2196F3',
