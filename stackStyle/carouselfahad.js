@@ -14,8 +14,10 @@ export default class App extends React.Component {
             <View
                 style={styles.item}
             >
+                {console.log('itemee', item)}
                 {/* <Text style={styles.text}>{item.title}</Text> */}
                 <Image
+                    // source={{ uri: item?.imageSource }}
                     source={{ uri: item?.imageSource }}
                     style={styles.image}
                 />
@@ -55,26 +57,29 @@ export default class App extends React.Component {
     }
 
     render() {
-        const data = [
-            // { title: 'Item 1' },
-            // { title: 'Item 2' },
-            // { title: 'Item 3' },
+        // const data = [this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl }))]
+        const data = this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl }))
+        // const data = [
+        //     // { title: 'Item 1' },
+        //     // { title: 'Item 2' },
+        //     // { title: 'Item 3' },
 
-            // { imageSource: require('./path/to/image1.jpg') },
-            // { imageSource: require('./path/to/image2.jpg') },
-            // { imageSource: require('./path/to/image3.jpg') }
+        //     // { imageSource: require('./path/to/image1.jpg') },
+        //     // { imageSource: require('./path/to/image2.jpg') },
+        //     // { imageSource: require('./path/to/image3.jpg') }
 
-            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
-            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
-            { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' }
+        //     { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
+        //     { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' },
+        //     { imageSource: 'https://blog.rrc.co.uk/wp-content/uploads/2022/03/shutterstock_274566236.jpg' }
 
-            // { imageSource: this.props.products.products?.map(v => v.imgUrl) }
+        //     // { imageSource: this.props.products.products?.map(v => v.imgUrl) }
 
-            // this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl }))
+        //     // this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl }))
 
-            // JSON.stringify(this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl })))
+        //     // JSON.stringify(this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl })))
 
-        ];
+        // ];
+
         // console.log('htisprosp', this.props)
         // console.log('htisprosp', this.props.products.products)
         // console.log('htisprosp', {this.props.products.products?.map(v => imageSource:v.imgUrl))}
