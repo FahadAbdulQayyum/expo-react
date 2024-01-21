@@ -24,7 +24,8 @@ export default class App extends React.Component {
     }
 
     render() {
-        const data = this?.props?.products?.products?.map(v => ({ imageSource: v?.imgUrl }))
+        const products = this.props.products?.products || []; // Ensure products is not undefined
+        const data = products.map(v => ({ imageSource: v?.imgUrl }));
         return (
             <Carousel
                 data={data}
