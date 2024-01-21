@@ -7,17 +7,21 @@ const CategorizedComponent = ({ categorized, filterBy }) => {
     return (
         <View>
             {productCategorized?.map((v, i) =>
-                <>
-                    <Text key={i}>
+                <View
+                    style={{ flex: 1, height: 100 }}
+                    key={i}
+                >
+                    <Text>
                         {v?.productName}
                     </Text>
                     <Image
                         source={{ uri: v?.imgUrl }}
                         style={styles.image}
                     />
-                </>
-            )}
-        </View>
+                </View>
+            )
+            }
+        </View >
     )
 }
 

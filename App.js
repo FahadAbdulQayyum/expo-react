@@ -1,7 +1,7 @@
-// In App.js in a new project
+// use this command to run this app -> 'npx expo start --tunnel'
 
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './stackStyle/homeScreen'
@@ -17,6 +17,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <Provider store={store}>
+      {/* <ScrollView> */}
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Home" component={HomeScreen}
@@ -53,6 +54,7 @@ function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      {/* </ScrollView> */}
     </Provider>
   );
 }

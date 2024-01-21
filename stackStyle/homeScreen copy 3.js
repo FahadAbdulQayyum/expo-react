@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import CarouselFahad from './carouselfahad';
 import CategorizedComponent from './categorizedComponent';
 
 export default function HomeScreen({ navigation }) {
     const [products, setProducts] = React.useState([]);
-    const [data, setData] = React.useState([{ name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' }, { name: 'Fahad' },]);
 
     React.useEffect(() => {
         const fetchProducts = async () => {
@@ -24,54 +23,30 @@ export default function HomeScreen({ navigation }) {
     }, []);
 
     return (
-        <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollViewContent}
-                style={styles.scrollView}
-            >
-                <View style={{ flex: 1, height: 100 }}>
-                    <CarouselFahad products={products} />
-                </View>
+        <ScrollView contentContainerStyle={styles.scrollViewContent} style={styles.scrollView}>
+            <View style={styles.container}>
+                <CarouselFahad products={products} />
+
                 <View style={styles.categorizedContainer}>
                     <CategorizedComponent categorized={products} filterBy='sweet' />
                     <CategorizedComponent categorized={products} filterBy='vegetable' />
                     <CategorizedComponent categorized={products} filterBy='fruit' />
                 </View>
-            </ScrollView >
-        </View>
-
-        // <View>
-        //     <ScrollView>
-        //         <View style={{ flex: 1, height: 100 }}>
-        //             <CarouselFahad products={products} />
-        //         </View>
-        //         {data.map((v, i) =>
-        //             <View key={i} style={{ flex: 1 }}>
-        //                 <View style={{ flex: 1 }}>
-        //                     <Text>
-        //                         {v.name}
-        //                     </Text>
-        //                 </View>
-        //             </View>
-
-        //         )
-        //         }
-        //     </ScrollView >
-        // </View >
+            </View>
+        </ScrollView >
     );
 }
 
 const styles = StyleSheet.create({
     scrollView: {
         flex: 1,  // Allow the ScrollView to take up the full available height
-        // height: 100,
+        height: 100,
     },
     scrollViewContent: {
-        flex: 1,
-        // flexGrow: 1,
+        flexGrow: 1,
         alignItems: 'center',
     },
     container: {
-        height: 100,
         flex: 1,
         alignItems: 'center',
         backgroundColor: 'white',

@@ -13,8 +13,9 @@ export default class App extends React.Component {
         return (
             <View
                 style={styles.item}
+                key={index}
             >
-                {console.log('itemee', item)}
+                {/* {console.log('itemee', item)} */}
                 <Image
                     source={{ uri: item?.imageSource }}
                     style={styles.image}
