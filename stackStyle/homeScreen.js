@@ -24,39 +24,37 @@ export default function HomeScreen({ navigation }) {
     }, []);
 
     return (
-        <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollViewContent}
-                style={styles.scrollView}
-            >
+        // <View style={styles.container}>
+        //     <ScrollView contentContainerStyle={styles.scrollViewContent}
+        //         style={styles.scrollView}
+        //     >
+        //         <View style={{ flex: 1, height: 100 }}>
+        //             <CarouselFahad products={products} />
+        //         </View>
+        //         <View style={styles.categorizedContainer}>
+        //             <CategorizedComponent categorized={products} filterBy='sweet' />
+        //             <CategorizedComponent categorized={products} filterBy='vegetable' />
+        //             <CategorizedComponent categorized={products} filterBy='fruit' />
+        //         </View>
+        //     </ScrollView >
+        // </View>
+
+        <View style={{ flex: 1, height: 100 }}>
+            <ScrollView>
                 <View style={{ flex: 1, height: 100 }}>
                     <CarouselFahad products={products} />
                 </View>
                 <View style={styles.categorizedContainer}>
                     <CategorizedComponent categorized={products} filterBy='sweet' />
+                </View>
+                <View style={styles.categorizedContainer}>
                     <CategorizedComponent categorized={products} filterBy='vegetable' />
+                </View>
+                <View style={styles.categorizedContainer}>
                     <CategorizedComponent categorized={products} filterBy='fruit' />
                 </View>
-            </ScrollView >
+            </ScrollView>
         </View>
-
-        // <View>
-        //     <ScrollView>
-        //         <View style={{ flex: 1, height: 100 }}>
-        //             <CarouselFahad products={products} />
-        //         </View>
-        //         {data.map((v, i) =>
-        //             <View key={i} style={{ flex: 1 }}>
-        //                 <View style={{ flex: 1 }}>
-        //                     <Text>
-        //                         {v.name}
-        //                     </Text>
-        //                 </View>
-        //             </View>
-
-        //         )
-        //         }
-        //     </ScrollView >
-        // </View >
     );
 }
 
@@ -77,10 +75,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     categorizedContainer: {
-        flex: 1,
-        backgroundColor: 'orange',
+        // flex: 1,
+        // height: 100,
+        // backgroundColor: 'orange',
         width: '95%',
-        marginVertical: 5,
+        // marginVertical: 5,
     },
 });
 

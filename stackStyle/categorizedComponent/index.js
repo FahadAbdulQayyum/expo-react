@@ -8,7 +8,7 @@ const CategorizedComponent = ({ categorized, filterBy }) => {
         <View>
             {productCategorized?.map((v, i) =>
                 <View
-                    // style={{ flex: 1, height: 100 }}
+                    style={{ flex: 1, height: 100 }}
                     key={i}
                 >
                     <Text>
