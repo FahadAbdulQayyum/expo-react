@@ -39,18 +39,21 @@ export default function HomeScreen({ navigation }) {
         //     </ScrollView >
         // </View>
 
-        <View style={{ flex: 1, height: 100 }}>
+        <View style={{ flex: 1, marginHorizontal: 10, }}>
             <ScrollView>
                 <View style={{ flex: 1, height: 100 }}>
                     <CarouselFahad products={products} />
                 </View>
                 <View style={styles.categorizedContainer}>
+                    <Text>SWEET</Text>
                     <CategorizedComponent categorized={products} filterBy='sweet' />
                 </View>
                 <View style={styles.categorizedContainer}>
+                    <Text>SWEET</Text>
                     <CategorizedComponent categorized={products} filterBy='vegetable' />
                 </View>
                 <View style={styles.categorizedContainer}>
+                    <Text>SWEET</Text>
                     <CategorizedComponent categorized={products} filterBy='fruit' />
                 </View>
             </ScrollView>
@@ -76,9 +79,12 @@ const styles = StyleSheet.create({
     },
     categorizedContainer: {
         // flex: 1,
+        // display: 'flex',
+        // flexDirection: 'column',
+        // justifyContent: 'space-between',
         // height: 100,
         // backgroundColor: 'orange',
-        width: '95%',
+        // width: '95%',
         // marginVertical: 5,
     },
 });
