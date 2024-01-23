@@ -49,11 +49,19 @@ export default function HomeScreen({ navigation }) {
                     <CategorizedComponent categorized={products} filterBy='sweet' />
                 </View>
                 <View style={styles.categorizedContainer}>
-                    <Text>SWEET</Text>
+                    <Text>VEGETABLE</Text>
                     <CategorizedComponent categorized={products} filterBy='vegetable' />
                 </View>
                 <View style={styles.categorizedContainer}>
-                    <Text>SWEET</Text>
+                    <Text>FRUIT</Text>
+                    <CategorizedComponent categorized={products} filterBy='fruit' />
+                </View>
+                <View style={styles.categorizedContainer}>
+                    <Text>VEGETABLE</Text>
+                    <CategorizedComponent categorized={products} filterBy='vegetable' />
+                </View>
+                <View style={styles.categorizedContainer}>
+                    <Text>FRUIT</Text>
                     <CategorizedComponent categorized={products} filterBy='fruit' />
                 </View>
             </ScrollView>

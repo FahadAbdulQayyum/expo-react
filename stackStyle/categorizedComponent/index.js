@@ -12,8 +12,8 @@ const CategorizedComponent = ({ categorized, filterBy }) => {
                 // justifyContent: 'space-between',
                 // alignItems: 'center',
                 flexDirection: 'row',
-                width: 100,
-                backgroundColor: 'orange',
+                width: '100%',
+                backgroundColor: 'purple',
                 height: 70,
             }}
         >
@@ -33,10 +33,14 @@ const CategorizedComponent = ({ categorized, filterBy }) => {
                     >
                         {v?.productName}
                     </Text>
-                    <Image
-                        source={{ uri: v?.imgUrl }}
+                    <View
                         style={styles.image}
-                    />
+                    >
+                        <Image
+                            source={{ uri: v?.imgUrl }}
+                            style={{ height: '100%' }}
+                        />
+                    </View>
                 </View>
             )
             }
@@ -61,8 +65,9 @@ const styles = {
     },
     image: {
         // width: '105%',
+        // width: '40%',
         height: '50%',
-        resizeMode: 'cover',
+        // resizeMode: 'cover',
         borderRadius: 50,
         borderWidth: 2,
         borderColor: 'red',
