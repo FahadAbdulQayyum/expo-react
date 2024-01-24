@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
+import ProductCard from '../../productCard'
 
 const CategorizedComponent = ({ categorized, filterBy }) => {
     // const productCategorized = categorized && categorized[0]?.filter(v => v.productCategory === filterBy)
@@ -13,35 +14,40 @@ const CategorizedComponent = ({ categorized, filterBy }) => {
                 // alignItems: 'center',
                 flexDirection: 'row',
                 width: '100%',
-                backgroundColor: 'purple',
+                // backgroundColor: 'purple',
                 height: 70,
             }}
         >
             {productCategorized?.map((v, i) =>
-                <View
-                    style={{
-                        flex: 1,
-                        height: 100,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        // justifyContent: 'center',
-                    }}
-                    key={i}
-                >
-                    <Text
-                        style={{ width: 100, fontSize: 8, textAlign: 'center', }}
-                    >
-                        {v?.productName}
-                    </Text>
-                    <View
-                        style={styles.image}
-                    >
-                        <Image
-                            source={{ uri: v?.imgUrl }}
-                            style={{ height: '100%' }}
-                        />
-                    </View>
-                </View>
+            // <View
+            //     style={{
+            //         flex: 1,
+            //         height: 100,
+            //         display: 'flex',
+            //         flexDirection: 'column',
+            //         // justifyContent: 'center',
+            //     }}
+            //     key={i}
+            // >
+            //     <Text
+            //         style={{ width: 100, fontSize: 8, textAlign: 'center', }}
+            //     >
+            //         {v?.productName}
+            //     </Text>
+            //     <View
+            //         style={styles.image}
+            //     >
+            //         <Image
+            //             source={{ uri: v?.imgUrl }}
+            //             style={{ height: '100%' }}
+            //         />
+            //     </View>
+            // </View>
+
+            (
+                <ProductCard key={i} product={v} />
+
+            )
             )
             }
         </View >
@@ -69,7 +75,7 @@ const styles = {
         height: '50%',
         // resizeMode: 'cover',
         borderRadius: 50,
-        borderWidth: 2,
-        borderColor: 'red',
+        // borderWidth: 2,
+        // borderColor: 'red',
     },
 };

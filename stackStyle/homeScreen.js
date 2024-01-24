@@ -24,21 +24,6 @@ export default function HomeScreen({ navigation }) {
     }, []);
 
     return (
-        // <View style={styles.container}>
-        //     <ScrollView contentContainerStyle={styles.scrollViewContent}
-        //         style={styles.scrollView}
-        //     >
-        //         <View style={{ flex: 1, height: 100 }}>
-        //             <CarouselFahad products={products} />
-        //         </View>
-        //         <View style={styles.categorizedContainer}>
-        //             <CategorizedComponent categorized={products} filterBy='sweet' />
-        //             <CategorizedComponent categorized={products} filterBy='vegetable' />
-        //             <CategorizedComponent categorized={products} filterBy='fruit' />
-        //         </View>
-        //     </ScrollView >
-        // </View>
-
         <View style={{ flex: 1, marginHorizontal: 10, }}>
             <ScrollView>
                 <View style={{ flex: 1, height: 100 }}>
