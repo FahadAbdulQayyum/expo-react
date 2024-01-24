@@ -7,6 +7,7 @@ const ProductCard = ({ product }) => {
 
     const handlePress = () => {
         navigation.navigate('ProductDetail', { product });
+        console.log('handlee')
     };
 
     return (

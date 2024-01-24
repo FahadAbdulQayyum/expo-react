@@ -2,14 +2,16 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
 const ProductDetail = ({ route }) => {
-    // const { product } = route.params;
-    const product = { image: 'https://www.freepnglogos.com/uploads/shoes-png/shoes-shoe-png-transparent-shoe-images-pluspng-17.png', title: 'Louis Vuitton', price: 200, description: 'Great and Pride to wear this shoes. Great and Pride to wear this shoes.' }
+    const { product } = route.params;
+    // const product = { image: 'https://www.freepnglogos.com/uploads/shoes-png/shoes-shoe-png-transparent-shoe-images-pluspng-17.png', title: 'Louis Vuitton', price: 200, description: 'Great and Pride to wear this shoes. Great and Pride to wear this shoes.' }
+    console.log('handlee', product)
+
     return (
         <View style={styles.container}>
             <View
                 style={styles.image}
             >
-                <Image source={{ uri: product.image }} style={styles.image} />
+                <Image source={{ uri: product.imgUrl }} style={styles.image} />
             </View>
 
             <View style={styles.details}>
