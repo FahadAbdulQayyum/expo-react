@@ -75,10 +75,10 @@ const styles = StyleSheet.create({
         // display: 'flex',
         // flexDirection: 'column',
         // justifyContent: 'space-between',
-        // height: 100,
+        height: 100,
         // backgroundColor: 'orange',
         // width: '95%',
-        // marginVertical: 5,
+        marginVertical: 15,
     },
 });
 

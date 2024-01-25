@@ -45,7 +45,18 @@ const CategorizedComponent = ({ categorized, filterBy }) => {
             // </View>
 
             (
-                <ProductCard key={i} product={v} />
+                <View
+                    style={{
+                        height: 100,
+                        // backgroundColor: 'red',
+                        // padding: 5,
+                        display: 'flex', flexDirection: 'column', alignItems: 'center',
+                        flex: 1,
+                        marginVertical: 5,
+                    }}
+                >
+                    <ProductCard key={i} product={v} />
+                </View>
 
             )
             )

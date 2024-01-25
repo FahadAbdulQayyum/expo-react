@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
 
 const ProductDetail = ({ route }) => {
     const { product } = route.params;
@@ -15,9 +15,20 @@ const ProductDetail = ({ route }) => {
             </View>
 
             <View style={styles.details}>
-                <Text style={styles.title}>{product.title}</Text>
-                <Text style={styles.price}>Price: ${product.price}</Text>
+                <Text style={styles.title}>{product.productName}</Text>
+                <Text style={styles.price}>Price: ${product.productPrice}</Text>
                 <Text style={styles.description}>{product.description}</Text>
+
+                {/* <Button>
+                    <Text>Add to Cart</Text>
+                </Button> */}
+
+                <TouchableOpacity>
+                    <Text
+                        style={{ backgroundColor: 'blue', paddingVertical: 4, paddingHorizontal: 6, color: 'white', borderRadius: 5 }}
+                    >Add to Cart</Text>
+                </TouchableOpacity>
+
             </View>
         </View>
     );
