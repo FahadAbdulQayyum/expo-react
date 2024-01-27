@@ -65,8 +65,11 @@ const counterSlice = createSlice({
                     }
                     return { ...v }
                 })
+                console.log('&*)(', updatedArr)
+                state.cart = []
                 state.cart.push(...updatedArr)
-                // return state.cart.push(...updatedArr)
+                // state.cart.push(updatedArr)
+                // return state.cart.push([...updatedArr])
             }
             else {
                 state.cart.push(action.payload)
@@ -75,7 +78,18 @@ const counterSlice = createSlice({
 
             // state.cart.push(action.payload)
             console.log('**********', action, "::::", state.cart)
-            // console.log('||TOTAL||', state.cart.reduce((a, b) => b + a.productPrice), 0)
+            // console.log('||TOTAL||', state.cart.reduce((a, b) => a + (b.productPrice * b.quantity), 0))
+            console.log('||TOTAL||', state.cart.reduce((a, b) => a + b.productPrice, 0))
+            // return {
+            //     ...state,
+            //     total: state.cart.reduce((a, b) => a + (b.productPrice * b.quantity), 0)
+            // }
+
+            // state.total = 0
+            state.total = state.cart.reduce((a, b) => a + (b.productPrice * b.quantity), 0)
+            // state.total = state.cart.reduce((a, b) => a + b.quantity, 0)
+            // state.total = state.cart.reduce((a, b) => a + b.quantity, 0)
+            // state.total = state.cart.reduce((a, b) => a + b.productPrice, 0)
         },
         decrement: (state, action) => {
             (state.products.length > 0 && !(state.products.filter(v => v._id === action.payload._id).length === 0)) ? state.products.find(v => v._id === action.payload._id).quantity -= 1 : state.products.push(action.payload)

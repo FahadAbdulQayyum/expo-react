@@ -17,6 +17,7 @@ const Screens = () => {
 
     // const count = useSelector((state) => state.counter.Products)
     const userInfo = useSelector((state) => state.counter.userInfo)
+    const productTotal = useSelector((state) => state.counter.total)
     const dispatch = useDispatch()
 
     console.log('userInfooo', userInfo)
@@ -77,7 +78,9 @@ const Screens = () => {
                                 onPress={() => Boolean(userInfo) ? navigation.navigate('Login') : navigation.navigate('Signin')
                                 }
                                 // title="Signup"
-                                title={!Boolean(userInfo) ? "Signup" : `Total: $${1}`}
+                                // title={!Boolean(userInfo) ? "Signup" : `Total: $${1}`}
+                                title={`Total: $${productTotal}`}
+                                // title={!Boolean(userInfo) ? "Signup" : `Total: $${productTotal}`}
                                 color='#f4511e'
                             />
                         ),
