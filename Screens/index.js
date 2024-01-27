@@ -61,7 +61,28 @@ const Screens = () => {
                 }}
                 /> */}
 
-                <Stack.Screen name="ProductDetail" component={ProductDetail} />
+                <Stack.Screen name="ProductDetail" component={ProductDetail}
+                    options={({ navigation }) => ({
+                        title: 'Product Detail',
+                        headerStyle: {
+                            backgroundColor: '#f4511e',
+                        },
+                        headerTintColor: '#fff',
+                        headerTitleStyle: {
+                            fontWeight: 'bold',
+                        },
+                        headerRight: () => (
+                            <Button
+                                // onPress={() => navigation.navigate('Signup')}
+                                onPress={() => Boolean(userInfo) ? navigation.navigate('Login') : navigation.navigate('Signin')
+                                }
+                                // title="Signup"
+                                title={!Boolean(userInfo) ? "Signup" : `Total: $${1}`}
+                                color='#f4511e'
+                            />
+                        ),
+                    })}
+                />
 
             </Stack.Navigator>
         </NavigationContainer>

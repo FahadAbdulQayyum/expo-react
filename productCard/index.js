@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
                 <View style={styles.image}>
                     <Image source={{ uri: product?.imgUrl }}
                         // style={{ height: '100%', weight: '100%', }}
-                        style={{ height: '100%', weight: 100, }}
+                        style={{ height: '100%', width: 100, }}
                     />
                 </View>
             </View>
@@ -56,7 +56,7 @@ const styles = {
         // justifyContent: 'center',
         // height: '100%',
         height: 100,
-        weight: 100,
+        width: 100,
         borderRadius: 50,
     },
 };

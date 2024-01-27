@@ -1,10 +1,16 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux'
+import { onLoad, increment } from '../features/counterSlice'
+
 
 const ProductDetail = ({ route }) => {
     const { product } = route.params;
     // const product = { image: 'https://www.freepnglogos.com/uploads/shoes-png/shoes-shoe-png-transparent-shoe-images-pluspng-17.png', title: 'Louis Vuitton', price: 200, description: 'Great and Pride to wear this shoes. Great and Pride to wear this shoes.' }
     console.log('handlee', product)
+
+    const userInfo = useSelector((state) => state.counter.userInfo)
+    const dispatch = useDispatch()
 
     return (
         <View style={styles.container}>
@@ -23,7 +29,9 @@ const ProductDetail = ({ route }) => {
                     <Text>Add to Cart</Text>
                 </Button> */}
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => dispatch(increment(product))}
+                >
                     <Text
                         style={{ backgroundColor: 'blue', paddingVertical: 4, paddingHorizontal: 6, color: 'white', borderRadius: 5 }}
                     >Add to Cart</Text>

@@ -54,6 +54,7 @@ const CategorizedComponent = ({ categorized, filterBy }) => {
                         flex: 1,
                         marginVertical: 5,
                     }}
+                    key={i}
                 >
                     <ProductCard key={i} product={v} />
                 </View>

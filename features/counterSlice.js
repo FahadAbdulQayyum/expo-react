@@ -13,7 +13,7 @@ export const saveUser = async () => {
 const counterSlice = createSlice({
     name: 'counter',
     // initialState: { products: JSON.parse(sessionStorage.getItem('pd')) !== null ? JSON.parse(sessionStorage.getItem('pd')) : [] },
-    initialState: { userInfo: {}, products: [] },
+    initialState: { userInfo: {}, products: [], cart: [], total: 0 },
 
     reducers: {
         onLoad: (state, action) => {
@@ -49,9 +49,33 @@ const counterSlice = createSlice({
         },
 
         increment: (state, action) => {
-            (state.products.length > 0 && !(state.products.filter(v => v._id === action.payload._id).length === 0)) ? state.products.find(v => v._id === action.payload._id).quantity += 1 : state.products.push(action.payload)
-            // sessionStorage.setItem('pd', JSON.stringify(state.products))
-            storeData(state.products)
+            // (state.products.length > 0 && !(state.products.filter(v => v._id === action.payload._id).length === 0)) ? state.products.find(v => v._id === action.payload._id).quantity += 1 : state.products.push(action.payload)
+            // // sessionStorage.setItem('pd', JSON.stringify(state.products))
+            // storeData(state.products)
+
+            const doesExist = state.cart.filter(v => v._id === action.payload._id)
+            // const doesExist = state.cart.filter(v => console.log('&&&&', v._id === action.payload._id, v._id, action.payload._id))
+            console.log('doesExist', doesExist.length)
+            if (doesExist.length > 0) {
+                let updatedArr = state.cart.map(v => {
+                    console.log('&&&&||', v._id === action.payload._id, v._id, action.payload._id)
+                    if (v._id === action.payload._id) {
+                        console.log('***||||****')
+                        return { ...v, quantity: v.quantity + 1 }
+                    }
+                    return { ...v }
+                })
+                state.cart.push(...updatedArr)
+                // return state.cart.push(...updatedArr)
+            }
+            else {
+                state.cart.push(action.payload)
+                console.log('state.carttt', state.cart)
+            }
+
+            // state.cart.push(action.payload)
+            console.log('**********', action, "::::", state.cart)
+            // console.log('||TOTAL||', state.cart.reduce((a, b) => b + a.productPrice), 0)
         },
         decrement: (state, action) => {
             (state.products.length > 0 && !(state.products.filter(v => v._id === action.payload._id).length === 0)) ? state.products.find(v => v._id === action.payload._id).quantity -= 1 : state.products.push(action.payload)
