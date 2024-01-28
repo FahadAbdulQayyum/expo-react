@@ -9,7 +9,15 @@ const ProductDetail = ({ route }) => {
     // const product = { image: 'https://www.freepnglogos.com/uploads/shoes-png/shoes-shoe-png-transparent-shoe-images-pluspng-17.png', title: 'Louis Vuitton', price: 200, description: 'Great and Pride to wear this shoes. Great and Pride to wear this shoes.' }
     console.log('handlee', product)
 
-    const userInfo = useSelector((state) => state.counter.userInfo)
+    // const userInfo = useSelector((state) => state.counter.userInfo)
+    const cart = useSelector((state) => state.counter.cart)
+    // console.log('carttt.quantity', cart.quantity)
+    // let qty = cart && cart?.filter(v => v._id === product._id)[0]
+    let qty = cart.length > 0 && cart?.filter(v => v._id === product._id)[0]?.quantity
+    // let qty = cart.filter(v => v._id === product._id)
+    console.log('carttt.quantity', qty)
+    // console.log('carttt.quantity', cart[0].quantity)
+    // console.log('carttt.quantity', cart)
     const dispatch = useDispatch()
 
     return (
@@ -23,7 +31,10 @@ const ProductDetail = ({ route }) => {
             <View style={styles.details}>
                 <Text style={styles.title}>{product.productName}</Text>
                 <Text style={styles.price}>Price: ${product.productPrice}</Text>
-                <Text style={styles.description}>{product.description}</Text>
+                {/* <Text style={styles.description}>{product.description}</Text> */}
+                <Text style={styles.description}>Quantity: {qty ? qty : 0}</Text>
+                {/* <Text style={styles.description}>Quantity: {qty}</Text> */}
+                {/* <Text style={styles.description}>Quantity: {cart ? cart[0].quantity : 1}</Text> */}
 
                 {/* <Button>
                     <Text>Add to Cart</Text>
@@ -73,6 +84,7 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 16,
         textAlign: 'center',
+        marginBottom: 5,
     },
 });
 
