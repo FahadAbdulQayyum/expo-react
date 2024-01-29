@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { onLoad } from '../features/counterSlice'
 import ProductDetail from '../productDetail';
+import Cart from './cart';
 
 const Stack = createNativeStackNavigator();
 
@@ -57,6 +58,10 @@ const Screens = () => {
                     headerShown: false
                 }}
                 />
+                <Stack.Screen name="Cart" component={Cart} options={{
+                    headerShown: false
+                }}
+                />
                 {/* <Stack.Screen name="ProductDetail" component={ProductDetail} options={{
                     headerShown: false
                 }}
@@ -75,7 +80,7 @@ const Screens = () => {
                         headerRight: () => (
                             <Button
                                 // onPress={() => navigation.navigate('Signup')}
-                                onPress={() => Boolean(userInfo) ? navigation.navigate('Login') : navigation.navigate('Signin')
+                                onPress={() => navigation.navigate('Cart')
                                 }
                                 // title="Signup"
                                 // title={!Boolean(userInfo) ? "Signup" : `Total: $${1}`}
