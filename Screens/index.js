@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { onLoad } from '../features/counterSlice'
 import ProductDetail from '../productDetail';
 import Cart from './cart';
+import CreateProducts from './createProducts';
 
 const Stack = createNativeStackNavigator();
 
@@ -60,6 +61,10 @@ const Screens = () => {
                 />
                 <Stack.Screen name="Cart" component={Cart} options={{
                     headerShown: false
+                }}
+                />
+                <Stack.Screen name="CreateProduct" component={CreateProducts} options={{
+                    headerShown: true
                 }}
                 />
                 {/* <Stack.Screen name="ProductDetail" component={ProductDetail} options={{

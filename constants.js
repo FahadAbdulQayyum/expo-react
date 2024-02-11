@@ -1,0 +1,5 @@
+export const EXPO_CLOUDINARY_CLOUD_NAME = 'dl1hzcdk4'
+export const EXPO_CLOUDINARY_API_KEY = 995973449947461
+export const EXPO_CLOUDINARY_API_SECRET = 'T1cNR_AJAMQj6oLUnJRiiU2PnnU'
+export const EXPO_CLOUDINARY_PRESET_NAME = 'fahadtahir'
+export const EXPO_CLOUDINARY_PRESET_NAME_1 = 'fahad_profile'

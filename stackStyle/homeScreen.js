@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import CarouselFahad from './carouselfahad';
 import CategorizedComponent from './categorizedComponent';
 
@@ -49,6 +49,12 @@ export default function HomeScreen({ navigation }) {
                     <Text>FRUIT</Text>
                     <CategorizedComponent categorized={products} filterBy='fruit' />
                 </View>
+                <TouchableOpacity onPress={() => navigation.navigate('CreateProduct')}>
+                    <View style={{ paddingVertical: 10 }}>
+                        <Text style={{ backgroundColor: 'blue', paddingVertical: '10px', padding: '20px', color: 'white', textAlign: 'center', }}>Create Product</Text>
+                    </View>
+                </TouchableOpacity>
+
             </ScrollView>
         </View>
     );

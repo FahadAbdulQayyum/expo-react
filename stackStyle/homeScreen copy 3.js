@@ -32,6 +32,7 @@ export default function HomeScreen({ navigation }) {
                     <CategorizedComponent categorized={products} filterBy='vegetable' />
                     <CategorizedComponent categorized={products} filterBy='fruit' />
                 </View>
+
             </View>
         </ScrollView >
     );

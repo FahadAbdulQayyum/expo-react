@@ -62,7 +62,9 @@ const CategorizedComponent = ({ categorized, filterBy }) => {
             )
             )
             }
+            {/* // onPress={() => navigation.navigate('Signup')} */}
         </View >
+
     )
 }
 
