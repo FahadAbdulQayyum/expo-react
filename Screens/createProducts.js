@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Button, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
+import { Button, Text, View, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios'; // Import axios for making HTTP requests
 import { EXPO_CLOUDINARY_API_KEY, EXPO_CLOUDINARY_CLOUD_NAME, EXPO_CLOUDINARY_PRESET_NAME_1 } from '../constants';
@@ -97,6 +97,7 @@ export default function CreateProduct() {
             console.log('Objj:', obj);
             const resp = await axios.post('https://hackathon-seven-sandy.vercel.app/api/createproduct', obj)
             console.log('resp', resp)
+            if (resp.data.success) { return Alert.alert("Product Created Successfully") }
 
             // Now you can do whatever you want with the image URL, like saving it in state or sending it to your backend
         } catch (error) {
